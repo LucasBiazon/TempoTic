@@ -8,6 +8,57 @@
     <title>TempoTic</title>
 </head>
 <body>
-    
+    <main class="h-[100svh] flex items-center  justify-center flex-col p-16 bg-slate-50">
+        <section class="h-[50%] flex flex-col gap-8 ">
+            <p class="text-lg">
+                How long until <span id="dateInitial" class="font-semibold italic">00/00/00</span>
+            </p>
+            <h1 id="result" class="text-4xl sm:text-6xl font-bold">
+                00d : 00h : 00min
+            </h1>
+        </section>
+
+        <section class="h-[50%] flex flex-col gap-8">
+            <div class="flex gap-4">
+                <div class="relative flex flex-col">
+                    <label for="inputInital" class="text-lg text-slate-600 absolute">
+                        Initial date
+                    </label>
+                    <input type="text" name="inputInital" id="inputInital"
+                    class="w-80 border-b-2 border-gray-950 outline-none bg-transparent">
+                </div>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                    </svg>
+                    <p class="hidden">
+                        If not specified, the initial data will be the current day.
+                    </p>
+                </button>
+            </div>
+
+            <div class="relative flex flex-col">
+                <label for="inputFinal" class="text-lg text-slate-600 absolute">
+                    Final date
+                </label>
+                <input type="text" name="inputFinal" id="inputFinal"
+                class="w-80 border-b-2 border-gray-950 outline-none bg-transparent">
+            </div>
+
+            <div id="calendar">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                    </svg>
+                    <p class="hidden">
+                        The calendar is limited to 3 years after the current day.                   
+                    </p>
+                </button>
+            </div>
+            <button class="h-8 font-bold uppercase text-slate-50 bg-slate-700 rounded-xl">Calculate</button>
+        </section>
+    </main>
 </body>
 </html>
