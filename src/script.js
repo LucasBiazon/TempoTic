@@ -117,6 +117,20 @@ function highlightDate(dataI, dataF) {
       } else {
         day.classList.remove('text-purple-500');
       }
+    // const days = document.querySelectorAll('.day');
+    // days.forEach(day => {
+    //   if (parseInt(day.innerText) === selectedDay && currentMonth === selectedMonth && currentYear === selectedYear) {
+    //     day.classList.add('text-purple-500');
+    //   } else {
+    //     day.classList.remove('text-purple-500');
+    //   }
+    // const days = document.querySelectorAll('.day');
+    // days.forEach(day => {
+    //   if (parseInt(day.innerText) === selectedDay && currentMonth === selectedMonth && currentYear === selectedYear) {
+    //     day.classList.add('text-purple-500');
+    //   } else {
+    //     day.classList.remove('text-purple-500');
+    //   }
     });
   }
 
