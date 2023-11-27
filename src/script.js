@@ -15,7 +15,6 @@ document.querySelector('#btInitial').addEventListener('click', () =>{
 })
 
 
-
 function Calc(){
     let dateI = new Date(inputInitial.value)
  
@@ -45,8 +44,7 @@ function Calc(){
     highlightDate(dateI)
 }
 
-let year = new Date().getFullYear()
-let month = new Date().getMonth()
+
 
 function Calendario(year, month){
     const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
@@ -56,29 +54,27 @@ function Calendario(year, month){
     const totalDays = lastDay.getDate()
     document.querySelector("#dateCalendar").innerHTML = `${months[month]} - ${year}`
     const headerHTML = `
-    <div class="weekdays grid grid-cols-7 gap-2 bg-gray-200 px-2">
+    <div class="grid grid-cols-7 gap-2 bg-gray-200 px-2">
       ${daysOfWeek.map(day => `<div class="weekday">${day}</div>`).join('')}
     </div>
-    <div class="days grid grid-cols-7 gap-2">
+    <div class="grid grid-cols-7 gap-2">
   `;
 
   let calendarHTML = headerHTML;
 
-  // Preenche os espaços em branco no início do mês
   for (let i = 0; i < firstDay.getDay(); i++) {
-    calendarHTML += `<div class="empty"></div>`;
+    calendarHTML += `<div></div>`;
   }
 
-  // Preenche os números dos dias do mês
+
   for (let day = 1; day <= totalDays; day++) {
     calendarHTML += `<div class="day">${day}</div>`;
   }
 
-  // Preenche os espaços restantes no final do mês
   const lastDayOfWeek = lastDay.getDay();
-  const remainingDays = (7 - lastDayOfWeek - 1 + 7) % 7; // Para garantir que seja positivo
+  const remainingDays = (7 - lastDayOfWeek - 1 + 7) % 7; 
   for (let i = 0; i < remainingDays; i++) {
-    calendarHTML += `<div class="empty"></div>`;
+    calendarHTML += `<div></div>`;
   }
 
   calendarHTML += `</div>`;
@@ -108,17 +104,10 @@ function highlightDate(dataI, dataF) {
     const selectedDay = (selectedDate.getDate() +1);
     const selectedMonth = selectedDate.getMonth();
     const selectedYear = selectedDate.getFullYear();
-
-    // const selectedDateF = new Date(dataF);
-    // const selectedDayF = (selectedDateF.getDate() +1);
-    // const selectedMonthF = selectedDateF.getMonth();
-    // const selectedYearF = selectedDateF.getFullYear();
   
     currentMonth = selectedMonth;
     currentYear = selectedYear;
-    // currentMonthF = selectedMonthF;
-    // currentYearF = selectedYearF;
-  
+
     Calendario(currentYear, currentMonth);
   
     const days = document.querySelectorAll('.day');
@@ -129,15 +118,7 @@ function highlightDate(dataI, dataF) {
         day.classList.remove('text-purple-500');
       }
     });
-
-    // days.forEach(day => {
-    //   if (parseInt(day.innerText) === selectedDayF && currentMonthF === selectedMonthF && currentYearF === selectedYearF) {
-    //     day.classList.add('text-purple-500');
-    //   } else {
-    //     day.classList.remove('text-purple-500');
-    //   }
-    // });
   }
-Calendario(year, month)
+
 
 

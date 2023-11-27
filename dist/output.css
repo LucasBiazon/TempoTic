@@ -582,6 +582,22 @@ video {
   bottom: 0px;
 }
 
+.right-0 {
+  right: 0px;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.right-5 {
+  right: 1.25rem;
+}
+
+.top-5 {
+  top: 1.25rem;
+}
+
 .flex {
   display: flex;
 }
@@ -748,6 +764,10 @@ video {
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
 }
 
 .overflow-auto {
@@ -1045,6 +1065,10 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:h-\[100svh\] {
+    height: 100svh;
+  }
+
   .sm\:w-72 {
     width: 18rem;
   }
