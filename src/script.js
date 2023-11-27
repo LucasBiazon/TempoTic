@@ -14,7 +14,6 @@ document.querySelector('#btInitial').addEventListener('click', () =>{
     setTimeout( () =>   document.querySelector("#initialAlert").classList.toggle('hidden'), 2000)
 })
 
-
 function Calc(){
     let dateI = new Date(inputInitial.value)
  
@@ -44,7 +43,8 @@ function Calc(){
     highlightDate(dateI)
 }
 
-
+let year = new Date().getFullYear()
+let month = new Date().getMonth()
 
 function Calendario(year, month){
     const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
@@ -104,10 +104,17 @@ function highlightDate(dataI, dataF) {
     const selectedDay = (selectedDate.getDate() +1);
     const selectedMonth = selectedDate.getMonth();
     const selectedYear = selectedDate.getFullYear();
+
+    // const selectedDateF = new Date(dataF);
+    // const selectedDayF = (selectedDateF.getDate() +1);
+    // const selectedMonthF = selectedDateF.getMonth();
+    // const selectedYearF = selectedDateF.getFullYear();
   
     currentMonth = selectedMonth;
     currentYear = selectedYear;
-
+    // currentMonthF = selectedMonthF;
+    // currentYearF = selectedYearF;
+  
     Calendario(currentYear, currentMonth);
   
     const days = document.querySelectorAll('.day');
@@ -117,21 +124,15 @@ function highlightDate(dataI, dataF) {
       } else {
         day.classList.remove('text-purple-500');
       }
-    // const days = document.querySelectorAll('.day');
-    // days.forEach(day => {
-    //   if (parseInt(day.innerText) === selectedDay && currentMonth === selectedMonth && currentYear === selectedYear) {
-    //     day.classList.add('text-purple-500');
-    //   } else {
-    //     day.classList.remove('text-purple-500');
-    //   }
-    // const days = document.querySelectorAll('.day');
-    // days.forEach(day => {
-    //   if (parseInt(day.innerText) === selectedDay && currentMonth === selectedMonth && currentYear === selectedYear) {
-    //     day.classList.add('text-purple-500');
-    //   } else {
-    //     day.classList.remove('text-purple-500');
-    //   }
     });
+
+    // days.forEach(day => {
+    //   if (parseInt(day.innerText) === selectedDayF && currentMonthF === selectedMonthF && currentYearF === selectedYearF) {
+    //     day.classList.add('text-purple-500');
+    //   } else {
+    //     day.classList.remove('text-purple-500');
+    //   }
+    // });
   }
 
 
