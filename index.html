@@ -9,7 +9,7 @@
 </head>
 <body>
     <main class="h-[100svh] flex items-center  justify-center flex-col p-16 bg-slate-50">
-        <section class="h-[50%] flex flex-col gap-8 ">
+        <section class="h-[40%] flex flex-col gap-8 ">
             <p class="text-lg">
                 How long until <span id="dateFinal" class="font-semibold italic">00/00/00</span>
             </p>
@@ -18,21 +18,21 @@
             </h1>
         </section>
 
-        <form class="h-[50%] flex flex-col gap-8">
+        <form class="h-[60%] flex flex-col gap-8">
             <div class="flex gap-4">
                 <div class="relative flex flex-col">
                     <label for="inputInitial" id="labelInitial" class="text-lg text-slate-600">
                         Initial date
                     </label>
                     <input type="date" name="inputInitial" id="inputInitial"
-                    class="w-80 border-b-2 border-gray-950 outline-none bg-transparent focus:bg-transparent">
+                    class="w-80 border-b-2 border-gray-950 outline-none bg-transparent focus:bg-transparent cursor-pointer">
                 </div>
-                <button type="click">
+                <button type="button" id="btInitial" class="relative">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                         <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
                     </svg>
-                    <p class="hidden">
+                    <p class="hidden text-left lg:w-72 absolute left-4 border-2 p-2 rounded-r-3xl rounded-bl-3xl" id="initialAlert">
                         If not specified, the initial data will be the current day.
                     </p>
                 </button>
@@ -43,21 +43,25 @@
                     Final date
                 </label>
                 <input type="date" name="inputFinal" id="inputFinal" required
-                class="w-80 border-b-2 border-gray-950 outline-none bg-transparent">
+                class="w-80 border-b-2 border-gray-950 outline-none bg-transparent cursor-pointer">
             </div>
 
-            <div id="calendar">
-                <button type="click">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-                    </svg>
-                    <p class="hidden">
-                        The calendar is limited to 3 years after the current day.                   
-                    </p>
-                </button>
+            <div class="flex gap-4 h-auto">
+                <div class="w-80 h-32 border-2 rounded-2xl overflow-y-auto p-2">
+                    <div class="relativo px-3 flex items-center justify-between ">
+                        <h2 id="dateCalendar" class="text-sm font-semibold">Mês - 0000</h2>
+                        <div>
+                            <button type="button" onclick="previousMonth()"><</button>
+                            <button type="button" onclick="nextMonth()">></button>
+                        </div>
+                    </div> 
+                    <hr>
+                    <div id="calendar">
+
+                    </div>
+                </div>
             </div>
-            <button type="submit" id='btCalc' class="h-8 font-bold uppercase text-slate-50 bg-slate-700 rounded-xl">Calculate</button>
+            <button type="submit" onclick="Calc()" class="h-8 font-bold uppercase text-slate-50 bg-slate-700 rounded-xl">Calculate</button>
         </form>
     </main>
 </body>
